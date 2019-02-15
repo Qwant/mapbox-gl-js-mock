@@ -3,6 +3,9 @@ function Bounds(map){
   this._w = map.center.lng
   this._n = map.center.lat
   this._s = map.center.lat
+
+  this._ne = {lng : map.center.lng, lat : map.center.lat}
+  this._sw = {lng : map.center.lng, lat : map.center.lat}
 }
 
 Bounds.prototype.toArray = function() {
