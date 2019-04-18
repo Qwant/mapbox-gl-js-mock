@@ -106,6 +106,13 @@ Map.prototype.hasImage = function(id) {
   return this._images[id];
 };
 
+Map.prototype.loadImage = function(path, cb) {
+  const img = new Image();
+  img.src = path
+  img.onload = () => cb(null, img)
+  img.onerror = e => cb(e, null)
+}
+
 Map.prototype.addControl = function(control) {
   control.onAdd(this);
 };
@@ -311,9 +318,6 @@ Map.prototype.isStyleLoaded = function() {
 
 Map.prototype.getCanvasContainer = function() {
   return this.canvas;
-};
-
-Map.prototype.addImage = function(id, image) {
 };
 
 Map.prototype.getStyle = function() {
