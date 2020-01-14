@@ -1,4 +1,4 @@
-var Bounds = require('./bounds');
+var LngLatBounds = require('mapbox-gl').LngLatBounds;
 var union = require('@turf/union');
 var bboxPolygon = require('@turf/bbox-polygon');
 var buffer = require('@turf/buffer');
@@ -335,7 +335,7 @@ Map.prototype.selectPoi = function() {
 };
 
 Map.prototype.getBounds = function () {
-  return new Bounds(this)
+  return new LngLat(map.center).toBounds(5000);
 }
 
 Map.prototype.on = function(type, ...options) {
